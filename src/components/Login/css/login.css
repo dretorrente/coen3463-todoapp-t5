@@ -1,0 +1,41 @@
+html, body {
+    background-color: #1D2024 !important;
+    margin: 0 auto;
+    height: 100%;
+    font-family: "Open Sans";
+    font-size: 13px;
+    padding-bottom: 0;
+    color: #393939;
+    line-height: 1.5;
+}
+
+.widget-box.visible {
+    visibility: visible;
+    position: relative;
+    z-index: auto;
+}
+#login-box .login-box  .visible .widget-box .no-border {
+    height: 451px !important;
+    width: 375px !important;
+}
+#login-box > .login-box > .widget-box {
+    background-color: #394557 !important;
+}
+#login-box .widget-body .widget-main {
+    padding: 16px 36px 36px;
+    background: #F7F7F7;
+
+}
+#login-box > .login-box >.widget-box {
+
+    position: fixed;
+    z-index: -5;
+    border-bottom: none;
+    box-shadow: none;
+    padding: 6px !important;
+
+    position: relative;
+}
+.position-relative {
+    position: relative;
+}
