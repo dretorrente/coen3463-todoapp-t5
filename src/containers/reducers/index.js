@@ -1,12 +1,12 @@
 import { combineReducers } from "redux"
 
-import flash from "./flashReducer"
+// import flash from "./flashReducer"
 import user from "./userReducer"
 import todo from "./todoReducer"
-import flashMessage from "./flashReducer";
+// import flashMessage from "./flashReducer";
 import token from "./tokenReducer";
 export default combineReducers({
-    flash,
+
     user,
     todo,
     token

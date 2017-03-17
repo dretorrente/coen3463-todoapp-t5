@@ -1,22 +1,13 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from '../components/Login/SignUpForm.js';
-// import { userSignupRequest } from './actions/signupActions';
+
 import { connect } from 'react-redux';
 import { fetchSignUpUser } from "./actions/userActions";
 import { UserSignUp, isUserExists } from "./actions/userActions";
 import { addFlashMessage } from "./actions/flashActions";
 import { validateSignupForm } from './validations/signup';
 
-// @connect((store) => {
-//     return{
-//         user: store.user.user,
-//         errors: store.user.errors,
-//         fetched: store.user.fetched,
-//         addFlashMessage,
-//         isUserExists
-//
-//     }
-// })
+
 class SignUpPage extends React.Component {
 
 

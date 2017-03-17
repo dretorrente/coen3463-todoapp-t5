@@ -52,7 +52,7 @@ router.post('/register', function(req, res, next) {
                     });
                 }
                 else {
-                    console.log(err.message);
+                    // console.log(err.message);
                 }
             });
 

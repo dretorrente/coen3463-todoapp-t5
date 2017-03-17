@@ -24,8 +24,6 @@ class TodoPage extends React.Component {
             todotask: '',
             count: this.props.todo ? this.props.todo.length : 0,
             todoState: this.props.todo ? this.props.todo : null,
-            checkBoxStatus: true,
-            isChecked: ''
 
 
         };
@@ -81,13 +79,13 @@ class TodoPage extends React.Component {
             todoState
 
         });
-        console.log(todoState[todoIndex].isChecked);
+        // console.log(todoState[todoIndex].isChecked);
 
     }
 
     completeSingleTodo(todoIndex) {
 
-        let checkBoxStatus = this.state.checkBoxStatus;
+
         let count = this.state.todoState.length;
         let todoState = this.state.todoState;
 
@@ -133,8 +131,6 @@ class TodoPage extends React.Component {
     }
 
     deleteSingleTodo(todoIndex) {
-        let checkBoxStatus = this.state.checkBoxStatus;
-        checkBoxStatus = true;
         let todoState = this.state.todoState;
         let count = this.state.todoState.length;
 
@@ -146,7 +142,7 @@ class TodoPage extends React.Component {
             this.props.fetchTodos(this.state.userID).then((response) => {
                 count = response.length;
                 todoState = response;
-                this.setState({count, todoState, checkBoxStatus});
+                this.setState({count, todoState});
             });
 
 
@@ -159,7 +155,7 @@ class TodoPage extends React.Component {
         }
 
         else {
-            console.log("STATEEEEEEEEEEEEEEE",todoState[todoIndex].isCompleted);
+            console.log("STATE",todoState[todoIndex].isCompleted);
 
         }
     }
@@ -170,8 +166,7 @@ class TodoPage extends React.Component {
     logout(e) {
         e.preventDefault();
         this.props.logout().then((response) => {
-            // this.setState({ this.props.user: {},
-            // browserHistory.push('/login');
+
             // browserHistory.push('/login');
             window.location ="/login";
         })
@@ -201,7 +196,7 @@ class TodoPage extends React.Component {
 
     deleteAllTodo(e) {
         e.preventDefault();
-        let text = "Hi";
+
         let r = confirm("Do you want to delete all your todo?");
         if (r == true) {
             this.props.deleteAllTodo(this.state.userID);
@@ -210,7 +205,7 @@ class TodoPage extends React.Component {
     }
     deleteAllCompleted(e) {
         e.preventDefault();
-        let text = "Hi";
+
         let r = confirm("Do you want to delete all  the completed todo?");
         if (r == true) {
             this.props.deleteAllCompleted(this.state.userID).then((response) => {
@@ -373,7 +368,6 @@ function mapStateToProps(state,props) {
         user: state.user.user,
         todo: state.todo,
         isAuthenticated: state.user.isAuthenticated
-        // isAuthenticated: state.user.isAuthenticated
     };
 }
 export default connect(mapStateToProps, {deleteAllCompleted,updateSingleTodo,deleteSingleTodo,deleteAllTodo, FETCH_TODO, fetchTodos, logout, fetchUser, createTodo, setTodos} )(TodoPage);

@@ -16,7 +16,7 @@ router.get('/events/:id',(req, res, next) => {
     // console.log(req.user);
     // res.status(201).json({result: "RESULT", user: req.user});
     let id = req.params.id;
-    console.log(id);
+
     Todo.find(function(err, docs) {
 
         let filterTodos = [];
@@ -28,7 +28,7 @@ router.get('/events/:id',(req, res, next) => {
             }
 
         }
-        console.log(filterTodos);
+
         res.send({todos: filterTodos});
     });
 
@@ -45,7 +45,7 @@ router.post('/events',(req, res, next) => {
     const { errors, isValid} = validateTodoForm(req.body);
 
     if(isValid) {
-        console.log(req.user);
+        // console.log(req.user);
         var todos = new Todo({
             name: req.body.todotask,
             owner:req.user,
@@ -80,7 +80,7 @@ router.delete('/events/:id',(req, res, next) => {
 
 router.delete('/events/allCompleted/:id',(req, res, next) => {
     let id = req.params.id;
-    console.log(id);
+
     Todo.find(function(err, docs) {
         for (let i=0; i < docs.length ; ++i) {
             // output.push(arrayData[i]["user"]);
@@ -108,7 +108,7 @@ router.delete('/events/allCompleted/:id',(req, res, next) => {
 
 router.delete('/events/all/:id',(req, res, next) => {
     let id = req.params.id;
-    console.log(id);
+
     Todo.find(function(err, docs) {
         for (let i=0; i < docs.length ; ++i) {
             // output.push(arrayData[i]["user"]);
@@ -147,7 +147,7 @@ router.put('/events/:id', function(req,res, next) {
     Todo.findOneAndUpdate({ _id: new ObjectId(todoID)}, {$set:{isCompleted:true, createdDate: dateSlice}},function(err, docs){
         if (err) { res.status(500).json({ errors: { global: err }}); return; }
         res.send({todo:docs});
-        console.log(docs)
+        // console.log(docs)
     });
 
 

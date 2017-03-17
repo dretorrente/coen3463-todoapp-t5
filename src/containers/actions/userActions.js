@@ -44,10 +44,7 @@ export function UserSignUp(data) {
 
                 console.log('reponse', error);
                 console.log('status', error.response.data.success);
-                // console.log('error', error);
-                // console.log('errorType', typeof error);
-                // console.log('error', Object.assign({}, error));
-                // dispatch({type: "FETCH_USER_REJECTED", payload: error.response.data.errors});
+
                 error.data = error.response.data.errors;
                 error.data.success = error.response.data.success;
                 return error;
@@ -76,14 +73,10 @@ export function UserLogin(data) {
                 return response;
             })
             .catch((error) => {
-                // console.log('response', error);
-                // console.log('data', error.response);
+
                 console.log('ERRORRRRSSS', error.response.data.errors);
                 console.log('SUCCESS', error.response.data.success);
-                // // console.log('error', error);
-                // // console.log('errorType', typeof error);
-                // // console.log('error', Object.assign({}, error));
-                // // dispatch({type: "FETCH_USER_REJECTED", payload: error.response.data.errors});
+
                 error.data = error.response.data.errors;
                 error.data.success = error.response.data.success;
                 return error;
@@ -105,10 +98,7 @@ export function UserForgot(data) {
 
                 console.log('reponse', error);
                 console.log('status', error.response.data.success);
-                // console.log('error', error);
-                // console.log('errorType', typeof error);
-                // console.log('error', Object.assign({}, error));
-                // dispatch({type: "FETCH_USER_REJECTED", payload: error.response.data.errors});
+
                 error.data = error.response.data.errors;
                 error.data.success = error.response.data.success;
                 return error;
@@ -116,28 +106,7 @@ export function UserForgot(data) {
 
     }
 }
-// export function UserRes(data) {
-//     return dispatch => {
-//         return axios.post("/auth/reset", data)
-//             .then((response) => {
-//                 console.log(response.data);
-//                 console.log(response.data.success);
-//                 return response;
-//             })
-//             .catch((error) => {
-//                 console.log('response', error);
-//                 console.log('status', error.response.data.success);
-//                 // console.log('error', error);
-//                 // console.log('errorType', typeof error);
-//                 // console.log('error', Object.assign({}, error));
-//                 // dispatch({type: "FETCH_USER_REJECTED", payload: error.response.data.errors});
-//                 error.data = error.response.data.errors;
-//                 error.data.success = error.response.data.success;
-//                 return error;
-//             })
-//
-//     }
-// }
+
 
 
 export function UserReset(token) {

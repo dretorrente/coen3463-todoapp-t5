@@ -24,9 +24,9 @@ const router = express.Router();
 var app = express();
 
 mongoose.Promise = global.Promise;
-var mdbUrl = "mongodb://root:root@ds121190.mlab.com:21190/coen3463-todoappt5";
+// var mdbUrl = "mongodb://root:root@ds121190.mlab.com:21190/coen3463-todoappt5";
 //
-// var mdbUrl = "mongodb://127.0.0.1:27017/react";
+var mdbUrl = "mongodb://127.0.0.1:27017/react";
     db = require('./db'); //mongoose is in db.js
 
 db.connect(mdbUrl, function(err) {
