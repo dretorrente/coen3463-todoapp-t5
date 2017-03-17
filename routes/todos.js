@@ -106,6 +106,33 @@ router.delete('/events/allCompleted/:id',(req, res, next) => {
     res.send({success: true});
 });
 
+router.delete('/events/all/:id',(req, res, next) => {
+    let id = req.params.id;
+    console.log(id);
+    Todo.find(function(err, docs) {
+        for (let i=0; i < docs.length ; ++i) {
+            // output.push(arrayData[i]["user"]);
+            if (docs[i].owner == id) {
+                    docs[i].remove(err=> {
+                        if (err) {
+                            return res.json({
+                                success: false,
+                                response: 'Error occured'
+                            });
+                        }
+
+                    })
+
+
+
+            }
+        }
+
+    });
+
+    res.send({success: true});
+});
+
 
 router.put('/events/:id', function(req,res, next) {
     dt = datetime.create();

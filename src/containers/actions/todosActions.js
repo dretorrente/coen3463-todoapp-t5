@@ -100,9 +100,9 @@ export function createTodo(events) {
 
     }
 }
-export function deleteAllTodo() {
+export function deleteAllTodo(id) {
     return dispatch => {
-        return axios.delete('api/v1/Todo')
+        return axios.delete('/todos/events/all/'+id)
     }
 }
 
