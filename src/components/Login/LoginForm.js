@@ -73,10 +73,10 @@ const LoginForm = ({
                                                         <div className="space"></div>
 
                                                         <div className="clearfix">
-                                                            {/*<label className="inline">*/}
-                                                                {/*<input type="checkbox" className="ace" />*/}
-                                                                {/*<span className="lbl"> Remember Me</span>*/}
-                                                            {/*</label>*/}
+                                                            <label className="inline">
+                                                                <input type="checkbox" className="ace" />
+                                                                <span className="lbl"> Remember Me</span>
+                                                            </label>
 
                                                             <button
                                                                 disabled={isLoading}
@@ -99,12 +99,12 @@ const LoginForm = ({
                                             </div>
                                             <div className="toolbar clearfix">
                                                 <div>
-                                                    {/*<Link to="/forgot">*/}
-                                                        {/*<a className="forgot-password-link">*/}
-                                                            {/*<i className="ace-icon fa fa-arrow-left"></i>*/}
-                                                            {/*I forgot my password*/}
-                                                        {/*</a>*/}
-                                                    {/*</Link>*/}
+                                                    <Link to="/forgot">
+                                                        <a className="forgot-password-link">
+                                                            <i className="ace-icon fa fa-arrow-left"></i>
+                                                            I forgot my password
+                                                        </a>
+                                                    </Link>
                                                 </div>
 
                                                 <div>
