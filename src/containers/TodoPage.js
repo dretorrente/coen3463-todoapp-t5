@@ -99,7 +99,7 @@ class TodoPage extends React.Component {
                 this.props.fetchTodos(this.state.userID).then((response) => {
                     count = response.length;
                     todoState = response;
-                    todoState[todoIndex].isChecked= !todoState[todoIndex].isCheckedd;
+                    todoState[todoIndex].isChecked= !todoState[todoIndex].isChecked;
                     this.setState({count, todoState});
                 });
 

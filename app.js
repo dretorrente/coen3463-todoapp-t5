@@ -16,20 +16,23 @@ var session = require('express-session');
 var auth = require('./routes/auth');
 var index = require('./routes/index');
 var todo = require('./routes/todos');
-
+var store = require('./session-store');
 const methodOverride = require('method-override');
 const restify = require('express-restify-mongoose');
 const router = express.Router();
 
+
 var app = express();
 
 mongoose.Promise = global.Promise;
-var mdbUrl = "mongodb://root:root@ds121190.mlab.com:21190/coen3463-todoappt5";
-//
+// var mdbUrl = "mongodb://root:root@ds121190.mlab.com:21190/coen3463-todoappt5";
+
+const uri = process.env.MONGOLAB_URI || 'mongodb://root:root@ds121190.mlab.com:21190/coen3463-todoappt5';
+
 // var mdbUrl = "mongodb://127.0.0.1:27017/react";
     db = require('./db'); //mongoose is in db.js
 
-db.connect(mdbUrl, function(err) {
+mongoose.connect(uri, function(err) {
   if (err) {
     console.log('Unable to connect to mongoose');
     process.exit(1);
@@ -56,8 +59,9 @@ app.use(session({
   cookie: {
       maxAge: 1000 * 60 * 60
   },
+  store: store,
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: true
 }));
 
 
